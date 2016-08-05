@@ -1,0 +1,8 @@
+.sp-button-container {
+    display: none;
+}
+
+.sp-container {
+    background-color: unset;
+    border: unset;
+}
