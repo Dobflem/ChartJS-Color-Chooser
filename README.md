@@ -19,3 +19,4 @@ Allows you to quickly change chart color to find a color that fit your needs.
 * Allow users to specify how many lines and points they'd like.
 * Allow users to change the color of each individual line / arc / etc..
 * Allow users to import their own data.
+* Allow users to export the code to create their customized chart.
