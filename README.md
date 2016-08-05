@@ -3,6 +3,10 @@ Allows you to quickly change chart color to find a color that fit your needs.
 
 ## TODO
 
+#### Update the directory structure
+* Create a folder for src files.
+* Maybe create a build script to minimise files.
+
 #### Add styling to page
 * Make it look a bit less thrown together.
 * Resize the Chart so it doesn't go fullscreen.
