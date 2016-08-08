@@ -11,7 +11,15 @@
         <script src="chooser.js"></script>
     </head>
     <body>
-        <canvas id="lineChart"></canvas>
-        <input type="text" class="spectrum" />
+        <div class="row">
+            <h2 class="header">Line Chart</h2>
+        </div>
+        <div class="row">
+            <div class="chart-holder">
+                <canvas id="lineChart"></canvas>
+                <input id="lineSpec" type="text" class="spectrum" />
+                <p id="lineColor">#FF0000</p>
+            </div>
+        </div>
     </body>
 </html>

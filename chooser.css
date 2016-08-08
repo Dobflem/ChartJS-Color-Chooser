@@ -5,4 +5,33 @@
 .sp-container {
     background-color: unset;
     border: unset;
+    margin-top: 20px;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    text-align: center;
+}
+
+.header {
+    margin: auto;
+}
+
+.chart-holder {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+#lineChart {
+    max-width: 500px;
+    float: left;
+}
+
+#lineColor {
+    position: relative;
+    left: -15px;
+    top: -30px;
 }
