@@ -1,6 +1,10 @@
 # ChartJS-Color-Chooser
 Allows you to quickly change chart color to find a color that fit your needs.
 
+Note: Very minimal code at the moment.
+
+[ChartJS Color Chooser](https://dobflem.github.io/ChartJS-Color-Chooser/)
+
 ## TODO
 
 #### Update the directory structure
