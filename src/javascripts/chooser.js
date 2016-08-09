@@ -25,8 +25,9 @@ $(document).ready(function(){
     
     function updateChartColor(col) {
         var color = col.toRgb();
-        var fill = "rgba("+color.r+","+color.g+","+color.b+", 0.2)";
-        var stroke = "rgba("+color.r+","+color.g+","+color.b+", 1)";
+        var c = "rgba("+color.r+","+color.g+","+color.b+",";
+        var fill = c + "0.2)"; // Make it lighter color
+        var stroke = c + "1)"; // Make it normal color
         var hex = col.toHex().toUpperCase();
         lineColor.innerHTML = '#' + hex;
         lineChart.data.datasets[0].backgroundColor = fill;
