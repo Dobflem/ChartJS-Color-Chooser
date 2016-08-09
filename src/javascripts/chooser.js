@@ -1,8 +1,11 @@
 $(document).ready(function(){
+    Chart.defaults.global.defaultFontColor = "#000";
+    
     var ctx = $("#lineChart");
     var bgColor = "rgba(255, 0, 0, 0.2)";
     var borderColor = "rgba(255, 0, 0, 1)";
     var lineColor = document.getElementById("lineColor");
+    
     var data = {
         labels: ["Demo", "Demo", "Demo", "Demo", "Demo"],
         datasets: [
