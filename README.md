@@ -16,7 +16,7 @@ Note: Very minimal code at the moment.
 
 #### Add styling to page
 - [ ] Make it look a bit less thrown together.
-- [ ] Resize the Chart so it doesn't go fullscreen.
+- [X] Resize the Chart so it doesn't go fullscreen.
 - [ ] Create a light and dark theme.
 
 #### Add more charts
