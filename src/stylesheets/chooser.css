@@ -1,5 +1,14 @@
+body {
+    background-color: #222;
+    color: #FFF;
+}
+
 .sp-button-container {
     display: none;
+}
+
+.sp-picker-container {
+    border-left: unset;
 }
 
 .sp-container {

@@ -1,6 +1,8 @@
-$(document).ready(function(){
-    Chart.defaults.global.defaultFontColor = "#000";
-    
+$(document).ready(function() {
+    // Chart.defaults.global.defaultFontColor = "#000";
+    Chart.defaults.global.defaultFontColor = "#FFF";    
+
+
     var ctx = $("#lineChart");
     var bgColor = "rgba(255, 0, 0, 0.2)";
     var borderColor = "rgba(255, 0, 0, 1)";
