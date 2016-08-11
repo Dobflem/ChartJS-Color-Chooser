@@ -1,8 +1,13 @@
-$(document).ready(function(){
+$(document).ready(function() {
+    // Chart.defaults.global.defaultFontColor = "#000";
+    Chart.defaults.global.defaultFontColor = "#FFF";    
+
+
     var ctx = $("#lineChart");
     var bgColor = "rgba(255, 0, 0, 0.2)";
     var borderColor = "rgba(255, 0, 0, 1)";
     var lineColor = document.getElementById("lineColor");
+    
     var data = {
         labels: ["Demo", "Demo", "Demo", "Demo", "Demo"],
         datasets: [
@@ -22,8 +27,9 @@ $(document).ready(function(){
     
     function updateChartColor(col) {
         var color = col.toRgb();
-        var fill = "rgba("+color.r+","+color.g+","+color.b+", 0.2)";
-        var stroke = "rgba("+color.r+","+color.g+","+color.b+", 1)";
+        var c = "rgba("+color.r+","+color.g+","+color.b+",";
+        var fill = c + "0.2)"; // Make it lighter color
+        var stroke = c + "1)"; // Make it normal color
         var hex = col.toHex().toUpperCase();
         lineColor.innerHTML = '#' + hex;
         lineChart.data.datasets[0].backgroundColor = fill;
