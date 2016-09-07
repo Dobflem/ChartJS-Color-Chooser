@@ -30,8 +30,6 @@ body {
 
 .chart-holder {
     margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
     padding: 10px;
 }
 
@@ -44,4 +42,14 @@ body {
     position: relative;
     left: -15px;
     top: -30px;
+}
+
+.prefs {
+    float: left;
+}
+
+.chart-box {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
 }
