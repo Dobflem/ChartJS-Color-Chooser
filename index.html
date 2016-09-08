@@ -3,27 +3,60 @@
     <head>
         <meta charset="utf-8">
         <title>ChartJS Color Chooser</title>
+        <link rel="stylesheet" href="src/stylesheets/libs/bootstrap/bootstrap.min.css">
         <link rel="stylesheet" href="src/stylesheets/libs/spectrum/spectrum.css">
         <link rel="stylesheet" href="src/stylesheets/chooser.css">
         <script src="src/javascripts/libs/jquery/jquery-3.1.0.min.js"></script>
+        <script src="src/javascripts/libs/bootstrap/bootstrap.min.js"></script>
         <script src="src/javascripts/libs/chartjs/Chart.min.js"></script>
         <script src="src/javascripts/libs/spectrum/spectrum-min.js"></script>
         <script src="src/javascripts/chooser.js"></script>
     </head>
     <body>
-        <div class="row">
-            <h2 class="header">Line Chart</h2>
-        </div>
-        <div class="row">
-            <div class="chart-box">
-                <div class="chart-holder">
-                    <canvas id="lineChart"></canvas>
-                    <input id="lineSpec" type="text" class="spectrum" />
-                    <p id="lineColor">#FF0000</p>
+        <div id="lineChartHolder">
+            <div class="row">
+                <h2 class="header">Line Chart</h2>
+            </div>
+            <div class="row">
+                <div class="chart-box">
+                    <div class="chart-holder">
+                        <canvas id="lineChart"></canvas>
+                    </div>
+                    <div>
+                        <div class="dropdown dropdown-primary">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span id="line-btn">Dataset One</span>
+                            <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a class="line-item" href="#">Dataset One</a></li>
+                                <li><a class="line-item" href="#">Dataset Two</a></li>
+                                <li><a class="line-item" href="#">Dataset Three</a></li>
+                            </ul>
+                        </div>
+                        <!--<div>
+                            <span>Data:</span>
+                            <input class="input" id="line-data" type="text" value="[10, 20, 5, 15, 20]">
+                        </div>-->
+                        <div style="height: 30px;">
+                            <span class="left">Color:</span>
+                            <span id="lineColor" class="left">#FF0000</span>
+                        </div>
+                        <div>
+                            <span>Opacity:</span>
+                            <input class="input" id="line-opacity" type="number" min="0" max="1" step="0.05" value="0.2" />
+                        </div>
+                        <div>
+                            <span class="left">Points:</span>
+                            <input id="linePoints" checked data-toggle="toggle" type="checkbox">
+                            <br />
+                        </div>
+                    </div>
                 </div>
-                <div class="prefs">
-                    <p>Transparency</p>
-                    <input id="line-transparency" type="number" min="0" max="1" step="0.05" value="0.2" />
+            </div>
+            <div id="line-color-chooser">
+                <input id="lineSpec" type="text" class="spectrum" />
+                <div class="row">
+                    <div id="btn-line-color-save" class="btn btn-default">Choose</div>
+                    <div id="btn-line-color-cancel" class="btn btn-default">Cancel</div>
                 </div>
             </div>
         </div>

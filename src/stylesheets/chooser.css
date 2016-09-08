@@ -31,6 +31,7 @@ body {
 .chart-holder {
     margin-top: 10px;
     padding: 10px;
+    width: 500px;
 }
 
 #lineChart {
@@ -39,12 +40,13 @@ body {
 }
 
 #lineColor {
-    position: relative;
-    left: -15px;
-    top: -30px;
+    margin: 5px;
+    margin-left: 10px;
+    width: 160px;
+    height: 20px;
 }
 
-.prefs {
+.left {
     float: left;
 }
 
@@ -52,4 +54,57 @@ body {
     display: flex;
     margin-left: auto;
     margin-right: auto;
+}
+
+.dropdown-toggle {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.dropdown-menu {
+    width: 200px;
+}
+
+.input {
+    color:black;
+    max-width: 162px;
+    max-height: 35px;
+}
+
+#lineChartHolder {
+    margin-top: 100px;
+}
+
+#line-color-chooser {
+    width: 190px;
+    position: absolute;
+    left: 100px;
+    border: solid 1px white;
+    padding-bottom: 10px;
+    display: none;
+}
+
+#line-color-chooser > .row {
+    margin-left: 10px;
+    width: calc(100% - 17px);
+}
+
+#line-color-chooser > .row > .btn.btn-default {
+    width: 100%;
+}
+
+#line-color-chooser > .row > .btn.btn-default ~ .btn.btn-default {
+    margin-left: 10px;
+}
+
+#line-color-chooser::before {
+    position: absolute;
+    top: 100px;
+    left: -20px;
+    display: inline-block;
+    border-top: 7px solid transparent;
+    border-right: 20px solid #fff;
+    border-bottom: 7px solid transparent;
+    border-right-color: rgba(255, 255, 255, 1);
+    content: '';
 }
