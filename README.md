@@ -28,7 +28,7 @@ Note: Very minimal code at the moment.
 - [ ] Bubble chart
 
 #### Make it more customizable
-- [ ] Allow users to change the fill color opacity from 0.2.
+- [X] Allow users to change the fill color opacity from 0.2.
 - [ ] Allow users to specify how many lines and points they'd like.
 - [ ] Allow users to change the color of each individual line / arc / etc..
 - [ ] Allow users to import their own data.
