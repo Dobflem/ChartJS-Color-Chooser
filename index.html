@@ -15,10 +15,16 @@
             <h2 class="header">Line Chart</h2>
         </div>
         <div class="row">
-            <div class="chart-holder">
-                <canvas id="lineChart"></canvas>
-                <input id="lineSpec" type="text" class="spectrum" />
-                <p id="lineColor">#FF0000</p>
+            <div class="chart-box">
+                <div class="chart-holder">
+                    <canvas id="lineChart"></canvas>
+                    <input id="lineSpec" type="text" class="spectrum" />
+                    <p id="lineColor">#FF0000</p>
+                </div>
+                <div class="prefs">
+                    <p>Transparency</p>
+                    <input id="line-transparency" type="number" min="0" max="1" step="0.05" value="0.2" />
+                </div>
             </div>
         </div>
     </body>
