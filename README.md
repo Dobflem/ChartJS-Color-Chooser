@@ -10,6 +10,9 @@ Note: Very minimal code at the moment.
 
 ## TODO
 
+#### Wireframe Mockup of LineChart
+![alt linechart-wireframe](https://github.com/Dobflem/ChartJS-Color-Chooser/blob/master/ChartJS-Line-Wireframe.png)
+
 #### Update the directory structure
 - [X] Create a folder for src files.
 - [ ] Maybe create a build script to minimise files.
