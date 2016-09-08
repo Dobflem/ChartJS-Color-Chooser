@@ -1,24 +1,46 @@
 $(document).ready(function() {
     Chart.defaults.global.defaultFontColor = "#FFF";    
     var Options = {
-        line: {
-            hexColor: "#FF0000",
-            rgbColor: {
-                r: 255,
-                g: 0,
-                b: 0,
-                a: 1
-            },
-            opacity: "0.2",
-            previousRGB: {
-                r: 255,
-                g: 0,
-                b: 0,
-                a: 1
-            },
-            previousHex: "#FF0000",
+        currentDataset: 0,
+        global: {
             points: true
-        }
+        },
+        line: [
+            {
+                hexColor: "#FF0000",
+                rgbColor: {
+                    r: 255,
+                    g: 0,
+                    b: 0,
+                    a: 1
+                },
+                opacity: "0.5",
+                previousRGB: {
+                    r: 255,
+                    g: 0,
+                    b: 0,
+                    a: 1
+                },
+                previousHex: "#FF0000"
+            },
+            {
+                hexColor: "#FF0000",
+                rgbColor: {
+                    r: 255,
+                    g: 0,
+                    b: 0,
+                    a: 1
+                },
+                opacity: "0.5",
+                previousRGB: {
+                    r: 255,
+                    g: 0,
+                    b: 0,
+                    a: 1
+                },
+                previousHex: "#FF0000"
+            }    
+        ]
     };
     
     var ctx = $("#lineChart");
@@ -26,16 +48,22 @@ $(document).ready(function() {
     var borderColor = "rgba(255, 0, 0, 1)";
     var lineColorChooser = document.getElementById("line-color-chooser");
     var lineColor = document.getElementById("lineColor");
-    lineColor.style.backgroundColor = Options.line.hexColor;
+    lineColor.style.backgroundColor = Options.line[Options.currentDataset].hexColor;
     
     var data = {
         labels: ["Demo", "Demo", "Demo", "Demo", "Demo"],
         datasets: [
             {
-                label: "Demo Dataset",
+                label: "Dataset One",
                 backgroundColor: bgColor,
                 borderColor: borderColor,
                 data: [10, 20, 5, 15, 20]
+            },
+            {
+                label: "Dataset Two",
+                backgroundColor: bgColor,
+                borderColor: borderColor,
+                data: [16, 18, 10, 17, 16]
             }
         ]
     };
@@ -45,15 +73,16 @@ $(document).ready(function() {
         data: data
     });
     
-    $("#line-opacity").val(Options.line.opacity);
+    $("#line-opacity").val(Options.line[Options.currentDataset].opacity);
     
     function getTextColor() {
-        var or = Options.line.rgbColor.r | Options.line.rgbColor.g | Options.line.rgbColor.b;
-        var and = Options.line.rgbColor.r & Options.line.rgbColor.g & Options.line.rgbColor.b;
+        var rgb = Options.line[Options.currentDataset].rgbColor;
+        var or = rgb.r | rgb.g | rgb.b;
+        var and = rgb.r & rgb.g & rgb.b;
         
         if (or === 255) {
             return "#000";
-        } else if (and === Options.line.rgbColor.r) {
+        } else if (and === rgb.r) {
             return (and > 127) ? "#000" : "#FFF";
         } return "#FFF";
     }
@@ -66,20 +95,37 @@ $(document).ready(function() {
         }
     }
     
+    function updatePreferences() {
+        var line = Options.line[Options.currentDataset];
+        var color = line.hexColor;
+        var opacity = line.opacity;
+        var points = Options.global.points;
+        
+        lineColor.innerHTML = color;
+        lineColor.style.backgroundColor = color;
+        $("#line-opacity").val(opacity);
+        $(".spectrum").spectrum("set", color);
+    }
+    
     function updateLineChart() {
-        var color = Options.line.rgbColor;
+        var line = Options.line[Options.currentDataset];
+        var color = line.rgbColor;
         var c = "rgba("+color.r+","+color.g+","+color.b+",";
-        var fill = c + Options.line.opacity + ")"; // Make it lighter color
-        var stroke = c + "1)"; // Make it normal color
+        var fill = c + line.opacity + ")";
+        var stroke = c + "1)";
         var el = lineChart.config.options.elements;
-        lineColor.innerHTML = Options.line.hexColor;
-        lineColor.style.backgroundColor = Options.line.hexColor;
+        
+        /* Set the options */
+        lineColor.innerHTML = Options.line[Options.currentDataset].hexColor;
+        lineColor.style.backgroundColor = line.hexColor;
         lineColor.style.color = getTextColor();
-        lineChart.data.datasets[0].backgroundColor = fill;
-        lineChart.data.datasets[0].borderColor = stroke;
+        lineChart.data.datasets[Options.currentDataset].backgroundColor = fill;
+        lineChart.data.datasets[Options.currentDataset].borderColor = stroke;
         lineChart.config.options.elements.backgroundColor = "rgba(0,0,0,0)";
         lineChart.config.options.elements.borderColor = "rgba(0,0,0,0)";
-        if(Options.line.points) {
+        
+        /* Turn points on lines on/off */
+        if(Options.global.points) {
             el.point.borderWidth = 1;
             el.point.hoverBorderWidth = 2;
             el.point.hoverRadius = 4;
@@ -90,6 +136,8 @@ $(document).ready(function() {
             el.point.hoverRadius = 0;
             el.point.radius = 0;
         }
+        
+        /* The magic method call */
         lineChart.update();
     }
     
@@ -103,15 +151,19 @@ $(document).ready(function() {
         color: '#F00',
         flat: true,
         move: function(color) {
-            Options.line.rgbColor = color.toRgb();
-            Options.line.hexColor = "#" + color.toHex().toUpperCase();
+            var line = Options.line[Options.currentDataset];
+            line.rgbColor = color.toRgb();
+            line.hexColor = "#" + color.toHex().toUpperCase();
             updateLineChart();
         }
     });
     
     $("#line-opacity").bind('keyup mouseup', function () {
-        Options.line.opacity = $(this).val();
-        updateLineChart();
+        if($(this).val()) {
+            var line = Options.line[Options.currentDataset];
+            line.opacity = $(this).val();
+            updateLineChart();
+        }
     });
     
     $(".line-item").on('click', function() {
@@ -123,21 +175,30 @@ $(document).ready(function() {
     });
     
     $("#linePoints").change(function() {
-        Options.line.points = $(this).is(":checked");
+        Options.global.points = $(this).is(":checked");
         updateLineChart();
     });
     
     $("#btn-line-color-save").on('click', function() {
-        Options.line.previousRGB = Options.line.rgbColor;
-        Options.line.previousHex = Options.line.hexColor;
+        var line = Options.line[Options.currentDataset];
+        line.previousRGB = line.rgbColor;
+        line.previousHex = line.hexColor;
         $("#line-color-chooser").hide();
     });
     
     $("#btn-line-color-cancel").on('click', function() {
-        Options.line.rgbColor = Options.line.previousRGB;
-        Options.line.hexColor = Options.line.previousHex;
+        var line = Options.line[Options.currentDataset];
+        line.rgbColor = line.previousRGB;
+        line.hexColor = line.previousHex;
         updateLineChart();
         $("#line-color-chooser").hide();
+    });
+    
+    $("[data-idx]").each(function() {
+        $(this).on('click', function() {
+            Options.currentDataset = parseInt($(this).data("idx"));
+            updatePreferences();
+        });
     });
     
     $(window).resize(function() {
