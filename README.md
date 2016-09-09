@@ -20,6 +20,9 @@ Note: Very minimal code at the moment.
 #### Add styling to page
 - [X] Resize the Chart so it doesn't go fullscreen.
 - [ ] Create a light and dark theme.
+- [ ] Change look of default input fields.
+- [ ] Change look of buttons.
+- [ ] Change look of dropdowns.
 
 #### Make Line Chart more customizable
 - [X] Allow users to change the fill color opacity from 0.2.
