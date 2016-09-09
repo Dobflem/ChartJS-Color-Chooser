@@ -108,3 +108,15 @@ body {
     border-right-color: rgba(255, 255, 255, 1);
     content: '';
 }
+
+#line-data {
+    overflow-y: hidden;
+    overflow-x: auto;
+    display: flex;
+    max-height: 50px;
+}
+
+.line-data {
+    width: 40px;
+    float: left;
+}
