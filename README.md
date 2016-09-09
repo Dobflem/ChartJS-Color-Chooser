@@ -15,12 +15,20 @@ Note: Very minimal code at the moment.
 
 #### Update the directory structure
 - [X] Create a folder for src files.
-- [ ] Maybe create a build script to minimise files.
+- [ ] Create a build script to minimise files.
 
 #### Add styling to page
-- [ ] Make it look a bit less thrown together.
 - [X] Resize the Chart so it doesn't go fullscreen.
 - [ ] Create a light and dark theme.
+
+#### Make Line Chart more customizable
+- [X] Allow users to change the fill color opacity from 0.2.
+- [X] Allow users to add/remvoe points.
+- [ ] Allow users to add/remove lines.
+- [X] Allow users to change the color of each individual line.
+- [ ] Allow users to import their own data.
+- [ ] Allow users to export the code to create their customized chart.
+- [ ] Allow users to change the background color of the chart.
 
 #### Add more charts
 - [ ] Pie chart
@@ -29,11 +37,3 @@ Note: Very minimal code at the moment.
 - [ ] Radar chart
 - [ ] Polar Area chart
 - [ ] Bubble chart
-
-#### Make it more customizable
-- [X] Allow users to change the fill color opacity from 0.2.
-- [ ] Allow users to specify how many lines and points they'd like.
-- [ ] Allow users to change the color of each individual line / arc / etc..
-- [ ] Allow users to import their own data.
-- [ ] Allow users to export the code to create their customized chart.
-- [ ] Allow users to change the background color of the chart.
