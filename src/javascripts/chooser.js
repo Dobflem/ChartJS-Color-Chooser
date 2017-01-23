@@ -200,10 +200,6 @@ $(document).ready(function() {
     $(".line-item").on('click', function() {
         $("#line-btn").html($(this).html());
     });
-
-    $("#lineColor").on('click', function() {
-        $("#line-color-chooser").show();
-    });
     
     $("#linePoints").change(function() {
         Options.global.points = $(this).is(":checked");
@@ -233,6 +229,14 @@ $(document).ready(function() {
         });
     });
     
+    $('.line-data').each(function(idx) {
+        $(this).val(Options.line[Options.currentDataset].dataset.data[idx]);
+    });
+    
+    $(lineColor).on('click', function() {
+        $(lineColorChooser).show();
+    });
+    
     $(document).on('input', '.line-data', function() {
         var i = 0,
             arr = [],
@@ -251,10 +255,6 @@ $(document).ready(function() {
     
     $(document).on('blur', '.line-data', function() {
         createDataNodes();
-    });
-
-    $('.line-data').each(function(idx) {
-        $(this).val(Options.line[Options.currentDataset].dataset.data[idx]);
     });
     
     $(window).resize(function() {
